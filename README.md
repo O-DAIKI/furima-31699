@@ -27,7 +27,7 @@
 | ---------------- | ---------- | ------------------------------ |
 | name             | string     | null: false                    |
 | text             | text       | null: false                    |
-| category         | string     | null: false                    |
+| category_id      | integer    | null: false                    |
 | condition_id     | integer    | null: false                    |
 | shipping_fee_id  | integer    | null: false                    |
 | shipping_from_id | integer    | null: false                    |
@@ -46,7 +46,7 @@
 | ---------------- | ---------- | ------------------------------ |
 | user             | references | null: false, foreign_key: true |
 | item             | references | null: false, foreign_key: true |
-| address          | references | null: false, foreign_key: true |
+| address          | references | null: false                    |
 
 ### Association
 
