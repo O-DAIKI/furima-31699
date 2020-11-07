@@ -30,59 +30,59 @@ describe Item do
         expect(@item.errors.full_messages).to include("Image can't be blank")
       end
       it 'nameが空だと出品できない' do
-        @item.name = ""
+        @item.name = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Name can't be blank")
       end
       it 'textが空だと出品できない' do
-        @item.text = ""
+        @item.text = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Text can't be blank")
       end
       it 'category_idのvalueが0だと出品できない' do
         @item.category_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category Select")
+        expect(@item.errors.full_messages).to include('Category Select')
       end
       it 'condition_idのvalueが0だと出品できない' do
         @item.condition_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Condition Select")
+        expect(@item.errors.full_messages).to include('Condition Select')
       end
       it 'shipping_fee_idのvalueが0だと出品できない' do
         @item.shipping_fee_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping fee Select")
+        expect(@item.errors.full_messages).to include('Shipping fee Select')
       end
       it 'shipping_from_idのvalueが0だと出品できない' do
         @item.shipping_from_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping from Select")
+        expect(@item.errors.full_messages).to include('Shipping from Select')
       end
       it 'shipping_day_idのvalueが0だと出品できない' do
         @item.shipping_day_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping day Select")
+        expect(@item.errors.full_messages).to include('Shipping day Select')
       end
       it 'priceが空だと出品できない' do
-        @item.price = ""
+        @item.price = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
       it 'priceが 300以上でないと出品できない' do
         @item.price = 200
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
+        expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
       end
       it 'priceが 9,999,999以下でないと出品できない' do
-        @item.price = 10000000
+        @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
+        expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
       end
       it 'priceが半角数字でないと出品できない' do
-        @item.price = "全角"
+        @item.price = '全角'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
     end
   end
