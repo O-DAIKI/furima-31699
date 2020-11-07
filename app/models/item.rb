@@ -15,7 +15,7 @@ class Item < ApplicationRecord
     validates :text
   end
 
-  with_options numericality: { other_than: 0 } do
+  with_options numericality: { other_than: 0, message: "Select" } do
     validates :category_id
     validates :condition_id
     validates :shipping_fee_id
@@ -23,6 +23,9 @@ class Item < ApplicationRecord
     validates :shipping_day_id
   end
 
-  validates :price, presence: true, format: { with: /\A[0-9]+\z/ }
+  validates :price, presence: true, format: { with: /\A[0-9]+\z/ }, numericality: {
+    greater_than_or_equal_to: 300,
+    less_than_or_equal_to: 9999999,
+    }
 
 end
