@@ -3,9 +3,7 @@ class OrdersController < ApplicationController
   before_action :item_find
 
   def index
-    if current_user.id == @item.user_id
-      redirect_to root_path
-    elsif @item.order != nil
+    if current_user.id == @item.user_id || @item.order != nil
       redirect_to root_path
     else
       @address_order = AddressOrder.new
